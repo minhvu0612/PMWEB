@@ -1,0 +1,90 @@
+:root{
+    --color: #3273dc;
+}
+.signup{
+    width: 100%;
+    height: 100vh;
+
+    .signup--header{
+        width: 100%;
+        height: 7vh;
+        background-color: var(--color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        box-sizing: border-box;
+        color: white;
+        div{
+            width: 9%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        cursor: pointer;
+    }
+
+    .signup--form{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 25px;
+        form{
+            p{
+                margin: 6px 0px;
+            }
+            .signup--form--link{
+                color: var(--color);
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.signup--website{
+    font-weight: bolder;
+    font-size: 1.7em;
+    font-family: BlinkMacSystemFont, -apple-system, 
+    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", 
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", 
+    "Helvetica", "Arial", sans-serif;
+}
+
+.signup--text{
+    font-weight: normal;
+    font-family: BlinkMacSystemFont, -apple-system, 
+    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", 
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", 
+    "Helvetica", "Arial", sans-serif;
+}
+
+.signup--input{
+    width: 350px;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid rgba($color: #000000, $alpha: 0.2);
+    padding: 0px 10px;
+    box-sizing: border-box;
+}
+
+.signup--input:focus-visible{
+    border: 1px solid var(--color);
+    outline: none;
+}
+
+.disable{
+    display: none;
+}
+.check1{
+    font-size: 0.85em;
+    color: red;
+    margin-bottom: -10px;
+    font-weight: bold;
+}
+
+.check2{
+    font-size: 0.85em;
+    color: red;
+    margin-bottom: -10px;
+    font-weight: bold;
+}

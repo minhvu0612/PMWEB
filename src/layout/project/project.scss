@@ -1,0 +1,163 @@
+:root{
+    --color: #3273dc;
+}
+.project{
+    width: 100%;
+    height: 100vh;
+
+    .project--header{
+        width: 100%;
+        height: 7vh;
+        background-color: var(--color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        box-sizing: border-box;
+        color: white;
+        .project--header--menu{
+            width: 12.5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            right: 10px;
+            .project--header--menu1{
+                position: relative;
+                .div1{
+                    position: absolute;
+                    background-color: white;
+                    box-shadow: 5px 5px 5px 5px rgba($color: #000000, $alpha: 0.1);
+                    border-radius: 3px;
+                    width: 150px;
+                    top: 7vh;
+                    left: 0;
+                    color: black;
+
+                    p{
+                        width: 100%;
+                        height: 40px;
+                        display: flex;
+                        justify-content: left;
+                        align-items: center;
+                        padding: 5px 15px;
+                        box-sizing: border-box;
+                        font-family: BlinkMacSystemFont, -apple-system, 
+                        "Segoe UI", "Roboto", "Oxygen", "Ubuntu", 
+                        "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", 
+                        "Helvetica", "Arial", sans-serif;
+                    }
+                    p:hover{
+                        background-color: rgba($color: #3273dc, $alpha: 0.08);
+                    }
+                }
+                .disable{
+                    display: none;
+                }
+            }
+            .project--header--menu2{
+                position: relative;
+                .div2{
+                    position: absolute;
+                    background-color: white;
+                    box-shadow: 5px 5px 5px 5px rgba($color: #000000, $alpha: 0.1);
+                    border-radius: 3px;
+                    width: 150px;
+                    top: 7vh;
+                    right: 0;
+                    color: black;
+
+                    p{
+                        width: 100%;
+                        height: 40px;
+                        display: flex;
+                        justify-content: left;
+                        align-items: center;
+                        padding: 5px 15px;
+                        box-sizing: border-box;
+                        font-family: BlinkMacSystemFont, -apple-system, 
+                        "Segoe UI", "Roboto", "Oxygen", "Ubuntu", 
+                        "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", 
+                        "Helvetica", "Arial", sans-serif;
+                    }
+                    p:hover{
+                        background-color: rgba($color: #3273dc, $alpha: 0.08);
+                    }
+                }
+                .disable{
+                    display: none;
+                }
+            }
+        }
+        cursor: pointer;
+    }
+
+    .project--main{
+        width: 100%;
+        padding: 40px 100px;
+        box-sizing: border-box;
+        .project--main--content{
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            .project--main--content--p1{
+                font-weight: bold;
+            }
+            p{
+                margin-bottom: 10px;
+            }
+            input{
+                width: 100%;
+                height: 30px;
+                padding: 0px 20px;
+                border-radius: 3px;
+                border: 1px solid rgba($color: #000000, $alpha: 0.3);
+            }
+            textarea{
+                width: 100%;
+                height: 100px;
+                padding: 5px 20px;
+                border-radius: 5px;
+                border: 1px solid rgba($color: #000000, $alpha: 0.3);
+            }
+        }
+        button{
+            background-color: white;
+            border: 1px solid rgba($color: #000000, $alpha: 0.3);
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 3px;
+        }
+        button:hover{
+            background-color: rgba($color: #000000, $alpha: 0.02);
+        }
+    }
+}
+
+.project--website{
+    font-weight: bolder;
+    font-size: 2.5em;
+    font-family: BlinkMacSystemFont, -apple-system, 
+    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", 
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", 
+    "Helvetica", "Arial", sans-serif;
+}
+
+.project--text{
+    font-weight: normal;
+    font-family: BlinkMacSystemFont, -apple-system, 
+    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", 
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", 
+    "Helvetica", "Arial", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 7vh;
+    width: 100px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+.project--text:hover{
+    background-color: #1d63d4;
+}

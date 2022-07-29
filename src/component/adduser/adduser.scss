@@ -1,0 +1,24 @@
+:root{
+    --color: #3273dc;
+}
+.adduser{
+    width: 100%;
+    cursor: pointer;
+    .adduser--team{
+        font-size: 1.3em;
+        color: var(--color);
+        font-weight: bold;
+    }
+    .adduser--member{
+        font-size: 0.85em;
+        margin-top: -25px;
+        color: rgba($color: #000000, $alpha: 0.7);
+        font-weight: bold;
+    }
+    .adduser--membername{
+        margin-top: 10px;
+        font-size: 0.8em;
+        color: gray;
+        font-weight: bold;
+    }
+}

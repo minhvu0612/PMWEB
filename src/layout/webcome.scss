@@ -1,0 +1,72 @@
+:root{
+    --color: #3273dc;
+}
+.welcome{
+    width: 100%;
+    height: 100vh;
+
+    .welcome--header{
+        width: 100%;
+        height: 7vh;
+        background-color: var(--color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        box-sizing: border-box;
+        color: white;
+        div{
+            width: 9%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        cursor: pointer;
+    }
+
+    .welcome--title{
+        width: 100%;
+        height: 20vh;
+        background-color: var(--color);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        div{
+            text-align: center;
+        }
+    }
+
+    .welcome--content{
+        width: 100%;
+        height: 73vh;
+        display: flex;
+        justify-content: space-between;
+        padding: 30px 10%;
+        box-sizing: border-box;
+        .welcome--content--div1{
+            width: 65%;
+        }
+        .welcome--content--div2{
+            width: 35%;
+            padding-left: 25px;
+        }
+    }
+}
+
+.welcome--website{
+    font-weight: bolder;
+    font-size: 1.7em;
+    font-family: BlinkMacSystemFont, -apple-system, 
+    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", 
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", 
+    "Helvetica", "Arial", sans-serif;
+}
+
+.welcome--text{
+    font-weight: normal;
+    font-family: BlinkMacSystemFont, -apple-system, 
+    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", 
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", 
+    "Helvetica", "Arial", sans-serif;
+}

@@ -1,0 +1,260 @@
+:root{
+    --color: #3273dc;
+}
+.team{
+    width: 100%;
+    height: 100vh;
+
+    .team--header{
+        width: 100%;
+        height: 7vh;
+        background-color: var(--color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        box-sizing: border-box;
+        color: white;
+        position: fixed;
+        .team--header--menu{
+            width: 12.5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            right: 10px;
+            .team--header--menu1{
+                position: relative;
+                .div1{
+                    position: absolute;
+                    background-color: white;
+                    box-shadow: 5px 5px 5px 5px rgba($color: #000000, $alpha: 0.1);
+                    border-radius: 3px;
+                    width: 150px;
+                    top: 7vh;
+                    left: 0;
+                    color: black;
+
+                    p{
+                        width: 100%;
+                        height: 40px;
+                        display: flex;
+                        justify-content: left;
+                        align-items: center;
+                        padding: 5px 15px;
+                        box-sizing: border-box;
+                        font-family: BlinkMacSystemFont, -apple-system, 
+                        "Segoe UI", "Roboto", "Oxygen", "Ubuntu", 
+                        "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", 
+                        "Helvetica", "Arial", sans-serif;
+                    }
+                    p:hover{
+                        background-color: rgba($color: #3273dc, $alpha: 0.08);
+                    }
+                }
+                .disable{
+                    display: none;
+                }
+            }
+            .team--header--menu2{
+                position: relative;
+                .div2{
+                    position: absolute;
+                    background-color: white;
+                    box-shadow: 5px 5px 5px 5px rgba($color: #000000, $alpha: 0.1);
+                    border-radius: 3px;
+                    width: 150px;
+                    top: 7vh;
+                    right: 0;
+                    color: black;
+
+                    p{
+                        width: 100%;
+                        height: 40px;
+                        display: flex;
+                        justify-content: left;
+                        align-items: center;
+                        padding: 5px 15px;
+                        box-sizing: border-box;
+                        font-family: BlinkMacSystemFont, -apple-system, 
+                        "Segoe UI", "Roboto", "Oxygen", "Ubuntu", 
+                        "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", 
+                        "Helvetica", "Arial", sans-serif;
+                    }
+                    p:hover{
+                        background-color: rgba($color: #3273dc, $alpha: 0.08);
+                    }
+                }
+                .disable{
+                    display: none;
+                }
+            }
+        }
+        cursor: pointer;
+    }
+
+    .team--content{
+        display: flex;
+        justify-content: space-between;
+        padding: 40px 65px 0px;
+        padding-top: 8vh;
+
+        .team--content--form{
+            width: 40%;
+
+            .team--content--form--title{
+                font-size: 1.7em;
+            }
+
+            .form{
+                width: 100%;
+                .form--name{
+                    font-weight: bold;
+                }
+                input{
+                    width: 100%;
+                    height: 25px;
+                    border-radius: 3px;
+                    padding: 0px 8px;
+                    box-sizing: border-box;
+                    border: 2px solid rgba($color: #000000, $alpha: 0.2);
+                }
+                input:focus{
+                    outline: none;
+                    border: 2px solid var(--color);
+                }
+                p{
+                    margin: 10px 0px 5px 0px;
+                }
+                .form--invite{
+                    font-size: 1.4em;
+                }
+                .form--des{
+                    font-size: 0.85em;
+                    font-weight: bold;
+                    color: rgba($color: #000000, $alpha: 0.5);
+                    margin-bottom: 20px;
+                }
+                .form--btn1{
+                    background-color: var(--color);
+                    border: none;
+                    color: white;
+                    padding: 8px 10px;
+                    box-sizing: border-box;
+                    border-radius: 3px;
+                }
+                .form--btn1:hover{
+                    background-color: #1d63d4;
+                }
+                .div--adduser{
+                    width: 100%;
+                }
+            }
+            hr{
+                width: 100%;
+                border: none;
+                border-bottom: 2px solid rgba($color: #000000, $alpha: 0.2);
+                margin: 20px 0px;
+            }
+            .form--btn2{
+                background-color: rgb(9, 201, 9);
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                font-size: 1.3em;
+                border-radius: 4px;
+            }
+            .form--btn2:hover{
+                background-color: rgb(10, 180, 10);
+            }
+        }
+
+        .team--content--main{
+            width: 45%;
+            margin-left: 15%;
+            .team--name--data{
+                font-size: 1.7em;
+            }
+            .team--data{
+                width: 100%;
+                .team--data--title{
+                    width: 100%;
+                    height: 30px;
+                    margin-top: 15px;
+                    display: flex;
+                    align-items: center;
+                    .team--data--title--name{
+                        font-weight: bold;
+                        width: 50%;
+                        margin-left: 20px;
+                    }
+                    .team--data--title--email{
+                        font-weight: bold;
+                        width: 50%;
+                        margin-left: 20px;
+                    }
+                }
+                hr{
+                    width: 100%;
+                    border: none;
+                    border-bottom: 2px solid rgba($color: #000000, $alpha: 0.2);
+                    margin: 7px 0px;
+                }
+                .div--datauser{
+                    width: 100%;
+                    .dataauser{
+                        display: flex;
+                        align-items: center;
+                        .dataname{
+                            width: 50%;
+                            margin-left: 20px;
+                        }
+                        .dataemail{
+                            width: 50%;
+                            margin-left: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.team--website{
+    font-weight: bolder;
+    font-size: 1.7em;
+    font-family: BlinkMacSystemFont, -apple-system, 
+    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", 
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", 
+    "Helvetica", "Arial", sans-serif;
+}
+
+.team--text{
+    font-weight: normal;
+    font-family: BlinkMacSystemFont, -apple-system, 
+    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", 
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", 
+    "Helvetica", "Arial", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 7vh;
+    width: 100px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+.team--text:hover{
+    background-color: #1d63d4;
+}
+
+.btn--remove{
+    width: 75px;
+    height: 30px;
+    margin: 10px 0px 0px 0px;
+}
+.hr{
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid rgba($color: #000000, $alpha: 0.2);
+    margin: 20px 0px;
+}

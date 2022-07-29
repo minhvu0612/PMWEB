@@ -1,0 +1,250 @@
+:root{
+    --color: #3273dc;
+}
+.home{
+    width: 100%;
+    height: 100vh;
+
+    .home--header{
+        width: 100%;
+        height: 7vh;
+        background-color: var(--color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        box-sizing: border-box;
+        color: white;
+        .home--header--menu{
+            width: 12.5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            right: 10px;
+            .home--header--menu1{
+                position: relative;
+                .div1{
+                    position: absolute;
+                    background-color: white;
+                    box-shadow: 5px 5px 5px 5px rgba($color: #000000, $alpha: 0.1);
+                    border-radius: 3px;
+                    width: 150px;
+                    top: 7vh;
+                    left: 0;
+                    color: black;
+
+                    p{
+                        width: 100%;
+                        height: 40px;
+                        display: flex;
+                        justify-content: left;
+                        align-items: center;
+                        padding: 5px 15px;
+                        box-sizing: border-box;
+                        font-family: BlinkMacSystemFont, -apple-system, 
+                        "Segoe UI", "Roboto", "Oxygen", "Ubuntu", 
+                        "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", 
+                        "Helvetica", "Arial", sans-serif;
+                    }
+                    p:hover{
+                        background-color: rgba($color: #3273dc, $alpha: 0.08);
+                    }
+                }
+                .disable{
+                    display: none;
+                }
+            }
+            .home--header--menu2{
+                position: relative;
+                .div2{
+                    position: absolute;
+                    background-color: white;
+                    box-shadow: 5px 5px 5px 5px rgba($color: #000000, $alpha: 0.1);
+                    border-radius: 3px;
+                    width: 150px;
+                    top: 7vh;
+                    right: 0;
+                    color: black;
+
+                    p{
+                        width: 100%;
+                        height: 40px;
+                        display: flex;
+                        justify-content: left;
+                        align-items: center;
+                        padding: 5px 15px;
+                        box-sizing: border-box;
+                        font-family: BlinkMacSystemFont, -apple-system, 
+                        "Segoe UI", "Roboto", "Oxygen", "Ubuntu", 
+                        "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", 
+                        "Helvetica", "Arial", sans-serif;
+                    }
+                    p:hover{
+                        background-color: rgba($color: #3273dc, $alpha: 0.08);
+                    }
+                }
+                .disable{
+                    display: none;
+                }
+            }
+        }
+        cursor: pointer;
+    }
+
+    .home--content{
+        width: 100%;
+        .home--content--header{
+            width: 100%;
+            height: 5vh;
+            p{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 10px 0px;
+                font-weight: bold;
+            }
+            hr{
+                border: none;
+                border-bottom: 2px solid rgba($color: #000000, $alpha: 0.1);
+                margin: 0px 35px;
+            }
+        }
+        .home--content--main{
+            display: flex;
+            width: 100%;
+            padding: 20px 45px;
+            box-sizing: border-box;
+            .home--content--main--project{
+                width: 30%;
+                .home--content--title{
+                    width: 100%;
+                    div{
+                        display: flex;
+                        justify-content: space-between;
+                        padding: 0px 10px;
+                        p{
+                            margin-left: 10px;
+                            .btn--count{
+                                width: 20px;
+                                height: 20px;
+                                border-radius: 100%;
+                                border: none;
+                            }
+                        }
+                        .home--addbtn{
+                            width: 20px;
+                            height: 20px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            background-color: white;
+                            border: 2px solid rgba($color: #000000, $alpha: 0.1);
+                            border-radius: 2px;
+                        }
+                        .home--addbtn:hover{
+                            border: 2px solid rgba($color: #000000, $alpha: 0.3);
+                        }
+                    }
+                    hr{
+                        border: none;
+                        border-bottom: 2px solid rgba($color: #000000, $alpha: 0.1);
+                        margin: 15px 5px;
+                    }
+                }
+            }
+            .home--content--main--team{
+                width: 30%;
+                margin-left: 5%;
+                .home--content--title{
+                    width: 100%;
+                    div{
+                        display: flex;
+                        justify-content: space-between;
+                        padding: 0px 10px;
+                        p{
+                            margin-left: 10px;
+                            .btn--count{
+                                width: 20px;
+                                height: 20px;
+                                border-radius: 100%;
+                                border: none;
+                            }
+                        }
+                        .home--addbtn{
+                            width: 20px;
+                            height: 20px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            background-color: white;
+                            border: 2px solid rgba($color: #000000, $alpha: 0.1);
+                            border-radius: 2px;
+                        }
+                        .home--addbtn:hover{
+                            border: 2px solid rgba($color: #000000, $alpha: 0.3);
+                        }
+                    }
+                    hr{
+                        border: none;
+                        border-bottom: 2px solid rgba($color: #000000, $alpha: 0.1);
+                        margin: 15px 5px;
+                    }
+                }
+            }
+            .home--content--main--activity{
+                width: 30%;
+                margin-left: 5%;
+                .home--content--title{
+                    width: 100%;
+                    div{
+                        display: flex;
+                        justify-content: space-between;
+                        padding: 0px 10px;
+                        p{
+                            margin-left: 10px;
+                            .btn--count{
+                                width: 20px;
+                                height: 20px;
+                                border-radius: 100%;
+                                border: none;
+                            }
+                        }
+                    }
+                    hr{
+                        border: none;
+                        border-bottom: 2px solid rgba($color: #000000, $alpha: 0.1);
+                        margin: 18px 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.home--website{
+    font-weight: bolder;
+    font-size: 1.7em;
+    font-family: BlinkMacSystemFont, -apple-system, 
+    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", 
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", 
+    "Helvetica", "Arial", sans-serif;
+}
+
+.home--text{
+    font-weight: normal;
+    font-family: BlinkMacSystemFont, -apple-system, 
+    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", 
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", 
+    "Helvetica", "Arial", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 7vh;
+    width: 100px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+.home--text:hover{
+    background-color: #1d63d4;
+}

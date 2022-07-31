@@ -10,15 +10,44 @@
         font-weight: bold;
     }
     .adduser--member{
-        font-size: 0.85em;
-        margin-top: -25px;
+        font-size: 0.8em;
+        margin-top: -20px;
         color: rgba($color: #000000, $alpha: 0.7);
         font-weight: bold;
     }
     .adduser--membername{
-        margin-top: 10px;
-        font-size: 0.8em;
+        margin-top: 5px;
+        font-size: 0.7em;
         color: gray;
         font-weight: bold;
     }
+}
+
+.sp{
+    width: 100px;
+    height: 20px;
+    padding: 3px;
+    border-radius: 3px;
+    color: white;
+    margin-left: 10px;
+}
+
+.sp1{
+    background-color: red;
+}
+.sp2{
+    background-color: orangered;
+}
+.sp3{
+    background-color: green;
+}
+.sp4{
+    background-color: blue;
+}
+.sp5{
+    background-color: rgb(120, 197, 4);
+}
+
+.act{
+    margin: -3.5px 0px;
 }

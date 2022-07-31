@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { loadAllUit } from "../api/api";
 import './adduser.scss';
 
 function TeamChild(props){
@@ -7,17 +8,25 @@ function TeamChild(props){
     const [str, setStr] = useState("");
 
     useEffect(() => {
-        var sl = 0;
-        var arrName = [];
-        props.arr.map((val) => {
-            if (val.team.id === props.team.id){
-                sl += 1;
-                arrName.push(val.user.name);
-            }
-        });
-        setCount(sl);
-        setStr(arrName.join(", "));
-    });
+        async function LoadUit(code){
+            await loadAllUit(code).then(
+                (res) => {
+                    var sl = 0;
+                    var arrName = [];
+                    res.data.data.map((val) => {
+                        if (val.team.id === props.team.id){
+                            sl += 1;
+                            arrName.push(val.user.name);
+                        }
+                    });
+                    setCount(sl);
+                    setStr(arrName.join(", "));
+                } 
+            )
+        }
+        LoadUit(props.team.code);
+        
+    }, []);
 
     return (
         <div className="adduser" style={{display: "block"}}>

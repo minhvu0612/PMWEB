@@ -7,8 +7,10 @@ import './home.scss';
 import welcome from "../../assets/welcome.PNG";
 import { Alert, Snackbar } from '@mui/material';
 import { removeLocal } from '../../component/localdata/data';
-import { loadAllTeam, loadAllUit } from '../../component/api/api';
+import { loadAllActivity, loadAllActProject, loadAllProject, loadAllTeam } from '../../component/api/api';
 import TeamChild from '../../component/adduser/adduser';
+import ProjectChild from '../../component/adduser/projectchild';
+import ActChild from '../../component/adduser/activity';
 
 function Home(){
 
@@ -18,10 +20,10 @@ function Home(){
     // alert login success
     const [open, setOpen] = useState(true);
 
-    // team
+    // team, project, activity
     const [allteam, setAllTeam] = useState([]);
-    // all user in team
-    const [alluserteam, setAllUserTeam] = useState([]);
+    const [project, setAllProject] = useState([]);
+    const [act, setAllAct] = useState([]);
 
     const handleClose = (reason) => {
         if (reason === 'clickaway') {
@@ -42,16 +44,45 @@ function Home(){
                 } 
             )
         }
-        async function LoadUit(){
-            await loadAllUit().then(
+        async function LoadProject(){
+            await loadAllProject().then(
                 (res) => {
-                    setAllUserTeam(res.data.data);
+                    setAllProject(res.data.data);
                     //console.log(res.data.data);
                 } 
             )
         }
+        async function LoadAct(){
+            var arr = [];
+            await loadAllActivity().then(
+                (res) => {
+                    res.data.data.map((val) => {
+                        arr.push({
+                            u: val.user.name,
+                            code: val.teamcode,
+                            st: val.state,
+                            date: val.created_at
+                        });
+                    })
+                } 
+            )
+            await loadAllActProject().then(
+                (res) => {
+                    res.data.data.map((val) => {
+                        arr.push({
+                            u: val.user.name,
+                            code: val.projectcode,
+                            st: val.state,
+                            date: val.created_at
+                        });
+                    })
+                } 
+            )
+            setAllAct(arr);
+        }
         LoadTeam();
-        LoadUit();
+        LoadProject();
+        LoadAct();
     }, []);
 
     return(
@@ -65,8 +96,15 @@ function Home(){
                 </Snackbar>
             </div>
             <div className="home--header">
-                <p className="home--website" style={{fontSize: 1.3 + "em"}} 
-                    onClick={() => window.location.href = "/"}>
+                <p className="project--website" style={{fontSize: 1.3 + "em"}} 
+                    onClick={() => {
+                        if (localStorage.getItem("name") === null){
+                            window.location.href = "/";
+                        }
+                        else{
+                            window.location.href = "/home";
+                        }
+                    }}>
                     Projekt
                 </p>
                 <div className="home--header--menu">
@@ -109,12 +147,22 @@ function Home(){
                     <div className="home--content--main--project">
                         <div className="home--content--title">
                             <div>
-                                <p>My Projects <button className="btn--count">{allteam.length}</button></p>
+                                <p>My Projects <button className="btn--count">{project.length}</button></p>
                                 <button className="home--addbtn" onClick={() => window.location.href = "/project/news"}>
                                     <AddSharpIcon sx={{fontSize: 12 + "px", color: "#3273dc"}} />
                                 </button>
                             </div>
                             <hr />
+                            {
+                                (project !== [])?(
+                                    project.map((val) => (
+                                    <>
+                                        <ProjectChild project={val} />
+                                        <hr />
+                                    </>
+                                    ))
+                                ):null
+                            }
                         </div>
                     </div>
                     <div className="home--content--main--team">
@@ -130,7 +178,7 @@ function Home(){
                                 (allteam !== [])?(
                                     allteam.map((val) => (
                                     <>
-                                        <TeamChild team={val} arr={alluserteam} />
+                                        <TeamChild team={val} />
                                         <hr />
                                     </>
                                     ))
@@ -144,6 +192,16 @@ function Home(){
                                 <p>Activities</p>
                             </div>
                             <hr />
+                            {
+                                (act !== [])?(
+                                    act.map((val) => (
+                                    <>
+                                        <ActChild state={val.st} user={val.u} code={val.code} date={val.date} />
+                                        <hr />
+                                    </>
+                                    ))
+                                ):null
+                            }
                         </div>
                     </div>
                 </div>

@@ -12,13 +12,20 @@ export const loadATeam = (id) => axios.get('http://127.0.0.1:8000/api/project/v1
 export const updateTeam = (data) => axios.put('http://127.0.0.1:8000/api/project/v1/team/update' + data);
 export const deleteTeam = (id) => axios.put('http://127.0.0.1:8000/api/project/v1/team/delete/' + id);
 
-export const loadAllUit = () => axios.get('http://127.0.0.1:8000/api/project/v1/team/getuits');
+export const addUit = (data) => axios.post('http://127.0.0.1:8000/api/project/v1/team/adduits', data);
+export const loadAllUit = (code) => axios.get('http://127.0.0.1:8000/api/project/v1/team/getuits/' + code);
+export const loadAllUits = () => axios.get('http://127.0.0.1:8000/api/project/v1/team/getalluits');
 
 // project
-export const createProject = (data) => axios.get('http://127.0.0.1:8000/api/project/v1/project/add', data);
+export const createProject = (data) => axios.post('http://127.0.0.1:8000/api/project/v1/project/add', data);
 export const loadAllProject = () => axios.get('http://127.0.0.1:8000/api/project/v1/project/get');
 export const loadAProject = (id) => axios.get('http://127.0.0.1:8000/api/project/v1/project/get/' + id);
-export const updateProject = (data) => axios.put('http://127.0.0.1:8000/api/project/v1/project/update' + data);
+export const updateProject = (data) => axios.put('http://127.0.0.1:8000/api/project/v1/project/update', data);
 
 // activity
 export const loadAllActivity = () => axios.get('http://127.0.0.1:8000/api/project/v1/activity/get');
+export const loadAllActProject = () => axios.get('http://127.0.0.1:8000/api/project/v1/pm/get');
+
+// 
+export const complete = (data) => axios.post('http://127.0.0.1:8000/api/project/v1/project/complete', data);
+export const confirm = (data) => axios.post('http://127.0.0.1:8000/api/project/v1/project/confirm', data);

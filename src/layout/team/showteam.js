@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { createTeam, loadAllUser } from '../../component/api/api';
 import './team.scss';
 
-function Team(){
+function TeamSetting(props){
     const [div1, setDiv1] = useState("disable");
     const [div2, setDiv2] = useState("disable");
 
@@ -267,4 +267,4 @@ function Team(){
     )
 }
 
-export default Team;
+export default TeamSetting;

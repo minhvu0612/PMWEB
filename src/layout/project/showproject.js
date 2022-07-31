@@ -5,7 +5,7 @@ import Select from 'react-select';
 
 // import png
 import { removeLocal } from '../../component/localdata/data';
-import { createProject, loadAllTeam, updateProject } from '../../component/api/api';
+import { confirm, loadAllTeam, updateProject } from '../../component/api/api';
 import TextField from '@mui/material/TextField';
 import { LocalizationProvider } from '@mui/x-date-pickers-pro';
 import { DateRangePicker } from '@mui/x-date-pickers-pro/DateRangePicker';
@@ -13,7 +13,7 @@ import { AdapterDateFns } from '@mui/x-date-pickers-pro/AdapterDateFns';
 import Box from '@mui/material/Box';
 import { CircularProgress } from '@mui/material';
 
-function Project(){
+function ProjectSetting(props){
 
     const [loading, setLoading] = useState("disable");
     const [div1, setDiv1] = useState("disable");
@@ -23,13 +23,13 @@ function Project(){
     const [allteam, setAllTeam] = useState([]);
 
     //set select team
-    const [selectedOption, setSelectedOption] = useState(null);
+    const [selectedOption, setSelectedOption] = useState({value: props.val.teamcode, label: props.val.team.name});
     const [options, setOptions] = useState([]);
-    const [value, setValue] = useState([null, null]);
+    const [value, setValue] = useState([props.val.startline, props.val.deadline]);
 
     // set data
-    const [pname, setPName] = useState("");
-    const [pdes, setPDes] = useState("");
+    const [pname, setPName] = useState(props.val.name);
+    const [pdes, setPDes] = useState(props.val.content);
 
     useEffect(() => {
         if (localStorage.getItem("name") === null){
@@ -48,9 +48,11 @@ function Project(){
             )
         }
         LoadTeam();
+        var d1 = new Date(value[0]);
+        console.log(d1.getMilliseconds());
     }, [])
 
-    const handleAddProject = (e) => {
+    const handleUpdateProject = (e) => {
         e.preventDefault(); 
         var y = value[1].getMonth() + 1;
         var deadline = value[1].getFullYear() + "-" + y + "-" + value[1].getDate() + " " + value[1].toLocaleTimeString();
@@ -64,10 +66,30 @@ function Project(){
             deadline: value[1],
             time: d1.getTime(),
         }
-        console.log(data);
+        //console.log(data);
         
+        async function UpdateProject(data){
+            await updateProject(data).then(
+                (res) => {
+                    if (res.data.alert === "success"){
+                        setLoading("loading");
+                        setTimeout(() => window.location.href = "/home", 1000);
+                    }
+                    else{
+                        setLoading("false");
+                    }
+                }
+            )
+        }
+        UpdateProject(data);
+    }
+
+    const handleConfirmProject = (e) => {
+        const data = {
+            code: props.val.code,
+        }
         async function CreateProject(data){
-            await createProject(data).then(
+            await confirm(data).then(
                 (res) => {
                     if (res.data.alert === "success"){
                         setLoading("loading");
@@ -123,67 +145,61 @@ function Project(){
                     </div>
                 </div>
             </div>
-            {
-                (allteam.length === 0)?(
-                    <div className="project--main">
-                        <p className="project--website">New Project</p>
-                        <div className="project--main--content">
-                            <p className="project--main--content--p1">It look as though you are not part of a team yet!</p>
-                            <p>You can create a team or get invited by another user to pin</p>
-                            <button onClick={() => window.location.href = "/team/news"}>Create a team</button>
-                        </div>
-                        <button onClick={() => window.location.href = "/home"}>Back</button>
+            <div className="project--main">
+                <p className="project--website">Setting Project</p>
+                <div className="project--main--content">
+                    <p className="project--main--content--p1">Name</p>
+                    <input type="text" defaultValue={pname} onChange={(e) => setPName(e.target.value)} />
+                    <p className="project--main--content--p1">Description</p>
+                    <textarea type="text" defaultValue={pdes} onChange={(e) => setPDes(e.target.value)}></textarea><br />
+                    <p className="project--main--content--p1">Team</p>
+                    <div style={{width: 15 + "%"}}>
+                        <Select
+                            defaultValue={selectedOption}
+                            onChange={setSelectedOption}
+                            options={options}
+                        />
                     </div>
-                ):null
-            }
-            {
-                (allteam.length !== 0)?(
-                    <div className="project--main">
-                        <p className="project--website">New Project</p>
-                        <div className="project--main--content">
-                            <p className="project--main--content--p1">Name</p>
-                            <input type="text" onChange={(e) => setPName(e.target.value)} />
-                            <p className="project--main--content--p1">Description</p>
-                            <textarea type="text" onChange={(e) => setPDes(e.target.value)}></textarea><br />
-                            <p className="project--main--content--p1">Team</p>
-                            <div style={{width: 15 + "%"}}>
-                                <Select
-                                    defaultValue={selectedOption}
-                                    onChange={setSelectedOption}
-                                    options={options}
-                                />
-                            </div>
-                            <div style={{marginTop: 10 + "px", height: 40 + "px", width: 30 + "%"}}>
-                            <p className="project--main--content--p1">Deadline</p>
-                            <LocalizationProvider
-                                dateAdapter={AdapterDateFns}
-                                localeText={{ start: '', end: '' }}
-                            >
-                                <DateRangePicker
-                                    value={value}
-                                    onChange={(newValue) => {
-                                        setValue(newValue);
-                                    }}
-                                    inputFormat="MM/dd/yyyy"
-                                    renderInput={(startProps, endProps) => (
-                                        <React.Fragment>
-                                            <TextField {...startProps} />
-                                            <Box sx={{ mx: 3 }}> to </Box>
-                                            <TextField {...endProps} />
-                                        </React.Fragment>
-                                    )}
-                                />
-                            </LocalizationProvider>
-                            </div>
-                        </div>
-                        <button style={{marginTop: 80 + "px"}} 
-                            onClick={() => window.location.href = "/home"}>Back Home</button>
+                    <div style={{marginTop: 10 + "px", height: 40 + "px", width: 30 + "%"}}>
+                    <p className="project--main--content--p1">Deadline</p>
+                    <LocalizationProvider
+                        dateAdapter={AdapterDateFns}
+                        localeText={{ start: '', end: '' }}
+                    >
+                    <DateRangePicker
+                        value={value}
+                        onChange={(newValue) => {
+                                    setValue(newValue);
+                                }}
+                        inputFormat="MM/dd/yyyy"
+                        renderInput={(startProps, endProps) => (
+                            <React.Fragment>
+                                <TextField {...startProps} />
+                                <Box sx={{ mx: 3 }}> to </Box>
+                                <TextField {...endProps} />
+                            </React.Fragment>
+                        )}
+                    />
+                    </LocalizationProvider>
+                    </div>
+                </div>
+                <button style={{marginTop: 80 + "px"}} 
+                    onClick={() => window.location.href = "/home"}>Back Home</button>
+                {
+                    (props.val.state == 1)?(
                         <button style={{marginTop: 80 + "px", right: 60 + "px", position: "absolute"}}
                             className="btn--save" 
-                            onClick={(e) => handleAddProject(e)}>Add Project</button>
-                    </div>
-                ):null
-            }
+                            onClick={(e) => handleConfirmProject(e)}>Confirm Project</button>
+                    ):null
+                }
+                {
+                    (props.val.state == 0)?(
+                        <button style={{marginTop: 80 + "px", right: 60 + "px", position: "absolute"}}
+                            className="btn--save" 
+                            onClick={(e) => handleUpdateProject(e)}>Change Project</button>
+                    ):null
+                }
+            </div>
             <div className={loading}>
                 <Box sx={{ width: '10%'}}>
                     <p className="login--website" style={{color: "white"}}>Loading ...</p><br />
@@ -194,4 +210,4 @@ function Project(){
     )
 }
 
-export default Project;
+export default ProjectSetting;

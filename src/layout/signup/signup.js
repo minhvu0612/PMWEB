@@ -1,4 +1,4 @@
-import { Button } from '@mui/material';
+import { Box, Button, CircularProgress } from '@mui/material';
 import { useState } from 'react';
 import { signUp } from '../../component/api/api';
 import { setLocal } from '../../component/localdata/data';
@@ -14,6 +14,8 @@ function Signup(){
     // comfirm
     const [check1, setCheck1] = useState("disable");
     const [check2, setCheck2] = useState("disable");
+    //load
+    const [loading, setLoading] = useState("disable");
 
     const onSignup = (e) => {
         e.preventDefault();
@@ -31,6 +33,8 @@ function Signup(){
                             setLocal(res.data);
                             setCheck2("disable");
                             console.log(localStorage);
+                            setLoading("loading")
+                            setTimeout(() => window.location.href = "/home", 1200);
                         }
                         else{
                             setCheck2("check2");
@@ -80,6 +84,12 @@ function Signup(){
                         Didn't receive confirmation instructions?
                     </p>
                 </form>
+            </div>
+            <div className={loading}>
+                <Box sx={{ width: '10%'}}>
+                    <p className="login--website" style={{color: "white"}}>Loading ...</p><br />
+                    <CircularProgress />
+                </Box>
             </div>
         </div>
     );

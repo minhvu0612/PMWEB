@@ -66,6 +66,7 @@ function User(){
                         if (val.teamcode === teamcode){
                             setProject(val);
                             //console.log(val);
+                            setCheck(1);
                         }
                     });
                 } 
@@ -121,7 +122,7 @@ function User(){
                             Account <KeyboardArrowDownIcon />
                         </p>
                         <div className={div2}>
-                            <p>{localStorage.getItem("name")}</p>
+                            <p onClick={() => window.location.href = "/profile"}>{localStorage.getItem("name")}</p>
                             <p onClick={() => {removeLocal(); window.location.href = "/"}}>Log Out</p>
                         </div>
                     </div>
@@ -136,7 +137,7 @@ function User(){
                     <hr />
                 </div>
                 {
-                (check === 0)?(
+                (check !== 0)?(
                     <>
                     <div className="home--content--main main--user">
                         <div className="main--project">

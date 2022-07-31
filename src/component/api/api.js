@@ -4,6 +4,7 @@ export const signUp = (data) => axios.post('http://127.0.0.1:8000/api/project/v1
 export const logIn = (data) => axios.post('http://127.0.0.1:8000/api/project/v1/login', data);
 export const loadAUser = (id) => axios.get('http://127.0.0.1:8000/api/project/v1/get_user/' + id);
 export const loadAllUser = () => axios.get('http://127.0.0.1:8000/api/project/v1/get_users');
+export const updateUser = (data) => axios.post('http://127.0.0.1:8000/api/project/v1/update_user', data);
 
 // team
 export const createTeam = (data) => axios.post('http://127.0.0.1:8000/api/project/v1/team/add', data);

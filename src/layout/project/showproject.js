@@ -54,8 +54,9 @@ function ProjectSetting(props){
 
     const handleUpdateProject = (e) => {
         e.preventDefault(); 
-        var y = value[1].getMonth() + 1;
-        var deadline = value[1].getFullYear() + "-" + y + "-" + value[1].getDate() + " " + value[1].toLocaleTimeString();
+        var y = new Date(value[1]);
+        var x = y.getMonth() + 1;
+        var deadline = y.getFullYear() + "-" + x + "-" + y.getDate() + " " + y.toLocaleTimeString();
         var d1 = new Date(deadline);
         const data = {
             name: pname,
@@ -65,19 +66,15 @@ function ProjectSetting(props){
             startline: value[0],
             deadline: value[1],
             time: d1.getTime(),
+            code: props.val.code,
         }
-        //console.log(data);
-        
+        console.log(data);
         async function UpdateProject(data){
             await updateProject(data).then(
                 (res) => {
-                    if (res.data.alert === "success"){
-                        setLoading("loading");
-                        setTimeout(() => window.location.href = "/home", 1000);
-                    }
-                    else{
-                        setLoading("false");
-                    }
+                    //console.log(res);
+                    setLoading("loading");
+                    setTimeout(() => { window.location.href = "/home"}, 1000);
                 }
             )
         }
@@ -93,10 +90,10 @@ function ProjectSetting(props){
                 (res) => {
                     if (res.data.alert === "success"){
                         setLoading("loading");
-                        setTimeout(() => window.location.href = "/home", 1000);
+                        setTimeout(() => { window.location.href = "/home"}, 1000);
                     }
                     else{
-                        setLoading("false");
+                        setLoading("disable");
                     }
                 }
             )
@@ -139,7 +136,7 @@ function ProjectSetting(props){
                             Account <KeyboardArrowDownIcon />
                         </p>
                         <div className={div2}>
-                            <p>{localStorage.getItem("name")}</p>
+                            <p onClick={() => window.location.href = "/profile"}>{localStorage.getItem("name")}</p>
                             <p onClick={() => {removeLocal(); window.location.href = "/"}}>Log Out</p>
                         </div>
                     </div>

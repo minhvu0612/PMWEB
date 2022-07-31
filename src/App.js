@@ -11,6 +11,7 @@ import { useEffect, useState } from 'react';
 import { loadAllProject } from './component/api/api';
 import ProjectSetting from './layout/project/showproject';
 import User from './layout/user/user';
+import Profile from './layout/user/profile';
 
 function App() {
 
@@ -45,7 +46,8 @@ function App() {
             ):null
           }
           <Route exact path="/project/news" element={<Project />} />
-          <Route exact path="/user" element={<User />} /> 
+          <Route exact path="/user" element={<User />} />
+          <Route exact path="/profile" element={<Profile />} /> 
         </Routes>
       </Router>
     </div>

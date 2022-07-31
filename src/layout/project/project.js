@@ -41,7 +41,9 @@ function Project(){
                     setAllTeam(res.data.data);
                     var arr = [];
                     res.data.data.map((val) => {
-                        arr.push({value: val.code, label: val.name});
+                        if(val.carry == 0){
+                            arr.push({value: val.code, label: val.name});
+                        }
                     });
                     setOptions(arr);
                 } 
@@ -74,7 +76,7 @@ function Project(){
                         setTimeout(() => window.location.href = "/home", 1000);
                     }
                     else{
-                        setLoading("false");
+                        setLoading("disable");
                     }
                 }
             )
@@ -117,7 +119,7 @@ function Project(){
                             Account <KeyboardArrowDownIcon />
                         </p>
                         <div className={div2}>
-                            <p>{localStorage.getItem("name")}</p>
+                            <p onClick={() => window.location.href = "/profile"}>{localStorage.getItem("name")}</p>
                             <p onClick={() => {removeLocal(); window.location.href = "/"}}>Log Out</p>
                         </div>
                     </div>

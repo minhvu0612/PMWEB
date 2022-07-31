@@ -221,8 +221,8 @@ function TeamSetting(props){
                             Account <KeyboardArrowDownIcon />
                         </p>
                         <div className={div2}>
-                            <p>{localStorage.getItem("name")}</p>
-                            <p>Log Out</p>
+                            <p onClick={() => window.location.href = "/profile"}>{localStorage.getItem("name")}</p>
+                            <p onClick={() => {removeLocal(); window.location.href = "/"}}>Log Out</p>
                         </div>
                     </div>
                 </div>

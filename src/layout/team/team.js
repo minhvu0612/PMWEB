@@ -2,6 +2,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { Alert, Snackbar } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { createTeam, loadAllUser } from '../../component/api/api';
+import { removeLocal } from '../../component/localdata/data';
 import './team.scss';
 
 function Team(){
@@ -221,8 +222,8 @@ function Team(){
                             Account <KeyboardArrowDownIcon />
                         </p>
                         <div className={div2}>
-                            <p>{localStorage.getItem("name")}</p>
-                            <p>Log Out</p>
+                            <p onClick={() => window.location.href = "/profile"}>{localStorage.getItem("name")}</p>
+                            <p onClick={() => {removeLocal(); window.location.href = "/"}}>Log Out</p>
                         </div>
                     </div>
                 </div>

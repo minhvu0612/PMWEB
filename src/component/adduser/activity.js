@@ -12,7 +12,7 @@ function ActChild(props){
         <div className="adduser act" style={{display: "block"}}>
             <p className="adduser--team">{props.state}</p><br/>
             <p className="adduser--member">By {props.user}</p>
-            <p className="adduser--membername">In {props.date}</p>
+            <p className="adduser--membername">In {props.date.slice(0,10)}</p>
         </div>
     );
 }

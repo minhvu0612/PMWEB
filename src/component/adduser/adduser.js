@@ -29,7 +29,7 @@ function TeamChild(props){
     }, []);
 
     return (
-        <div className="adduser" style={{display: "block"}}>
+        <div className="adduser" style={{display: "block"}} onClick={() => window.location.href = "/team/" + props.team.code}>
             <p className="adduser--team">{props.team.name}</p><br />
             <p className="adduser--member">{count} Members</p>
             <p className="adduser--membername">{str}</p>

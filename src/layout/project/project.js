@@ -41,9 +41,7 @@ function Project(){
                     setAllTeam(res.data.data);
                     var arr = [];
                     res.data.data.map((val) => {
-                        if(val.carry == 0){
-                            arr.push({value: val.code, label: val.name});
-                        }
+                        arr.push({value: val.code, label: val.name}); // node if carry == 0
                     });
                     setOptions(arr);
                 } 

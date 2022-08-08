@@ -8,14 +8,16 @@ import Home from './layout/home/home';
 import Team from './layout/team/team';
 import Project from './layout/project/project';
 import { useEffect, useState } from 'react';
-import { loadAllProject } from './component/api/api';
+import { loadAllProject, loadAllTeam } from './component/api/api';
 import ProjectSetting from './layout/project/showproject';
 import User from './layout/user/user';
 import Profile from './layout/user/profile';
+import UpdateTeam from './layout/team/updateteam';
 
 function App() {
 
   const [project, setAllProject] = useState([]);
+  const [team, setAllTeam] = useState([]);
 
   useEffect(() => {
     async function LoadProject(){
@@ -25,7 +27,15 @@ function App() {
         }
       )
     }
+    async function LoadTeam(){
+      await loadAllTeam().then(
+        (res) => {
+          setAllTeam(res.data.data);
+        }
+      )
+    }
     LoadProject();
+    LoadTeam();
   }, []);
 
   return (
@@ -38,6 +48,13 @@ function App() {
           <Route exact path="/resend" element={<Resend />} />  
           <Route exact path="/home" element={<Home />} />  
           <Route exact path="/team/news" element={<Team />} />
+          {
+            (team !== [])?(
+              team.map((val) => {
+                return (<Route exact path={"/team/" + val.code} element={<UpdateTeam val={val} />} />);
+              })
+            ):null
+          }
           {
             (project !== [])?(
               project.map((val) => {

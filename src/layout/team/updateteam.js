@@ -25,6 +25,9 @@ function UpdateTeam(props){
     // set remove arr
     const [remove, setRemove] = useState([]);
 
+    // all user
+    const [alluser, setAll] = useState([]);
+
     // set cur data
     const [curN, setCurN] = useState("");
     const [curE, setCurE] = useState("");
@@ -54,6 +57,15 @@ function UpdateTeam(props){
                 }
             )
         }
+        async function Load(){
+            await loadAllUser().then(
+                (res) => {
+                    setAll(res.data.data);
+                    //console.log(res.data.data);
+                }
+            )
+        }
+        Load();
         loadUIT(props.val.code);
     }, []);
 

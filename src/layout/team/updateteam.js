@@ -4,7 +4,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { Button, CircularProgress } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
-import { loadAllUit, updateTeam } from '../../component/api/api';
+import { loadAllUit, loadAllUser, updateTeam } from '../../component/api/api';
 import { removeLocal } from '../../component/localdata/data';
 import './team.scss';
 

@@ -1,6 +1,8 @@
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { Alert, Snackbar } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { Button, CircularProgress } from '@mui/material';
+import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import { loadAllUit, updateTeam } from '../../component/api/api';
 import { removeLocal } from '../../component/localdata/data';
@@ -10,6 +12,7 @@ function UpdateTeam(props){
 
     const [div1, setDiv1] = useState("disable");
     const [div2, setDiv2] = useState("disable");
+    const [loading, setLoading] = useState("disable");
 
     // set data team
     const [team, setTeam] = useState(props.val.name);
@@ -83,7 +86,8 @@ function UpdateTeam(props){
                     console.log(res);
                     setOpen(true);
                     setTeam("");
-                    setTimeout(() => { setOpen(false); window.location.href = "/home" }, 1500);
+                    setTimeout(() => { setOpen(false); window.location.href = "/home" }, 2000);
+                    setLoading("loading")
                 }
             )
         }
@@ -97,10 +101,12 @@ function UpdateTeam(props){
         })
         let json = JSON.stringify(arr);
         console.log(json);
+        let rem = JSON.stringify(remove);
         create(
             {
                 name: team, 
                 arr: json,
+                remove: rem,
                 user_id: parseInt(localStorage.getItem("id")),
             }
         );
@@ -169,7 +175,7 @@ function UpdateTeam(props){
                         <button className="form--btn1" style={{marginTop: 10 + "px"}} onClick={(e) => handleAdd(e)}>Add User</button>
                     </form>
                     <hr />
-                    <button className="form--btn2" onClick={(e) => {}}>Update Team</button>
+                    <button className="form--btn2" onClick={(e) => update(e)}>Update Team</button>
                 </div>
                 <div className="team--content--main">
                     <p className="team--name--data">{team}</p>
@@ -204,6 +210,12 @@ function UpdateTeam(props){
                         ):null
                     }
                 </div>
+            </div>
+            <div className={loading}>
+                <Box sx={{ width: '10%'}}>
+                    <p className="login--website" style={{color: "white"}}>Loading ...</p><br />
+                    <CircularProgress />
+                </Box>
             </div>
         </div>
     )

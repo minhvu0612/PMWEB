@@ -92,7 +92,7 @@ function UpdateTeam(props){
     
     const update = (e) => {
         e.preventDefault();
-        async function create(data){
+        async function upTeam(data){
             await updateTeam(data).then(
                 (res) => {
                     console.log(res);
@@ -103,6 +103,7 @@ function UpdateTeam(props){
                 }
             )
         }
+        console.log(arrE, arrN);
         var arr = [];
         arrN.map((val, index) => {
             alluser.map((value) => {
@@ -114,12 +115,21 @@ function UpdateTeam(props){
         let json = JSON.stringify(arr);
         console.log(json);
         let rem = JSON.stringify(remove);
-        create(
+        console.log({
+            name: team, 
+            arr: json,
+            remove: rem,
+            user_id: parseInt(localStorage.getItem("id")),
+            code: props.val.code,
+        })
+        
+        upTeam(
             {
                 name: team, 
                 arr: json,
                 remove: rem,
                 user_id: parseInt(localStorage.getItem("id")),
+                code: props.val.code,
             }
         );
     }

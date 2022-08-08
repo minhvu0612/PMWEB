@@ -10,7 +10,7 @@ export const updateUser = (data) => axios.post('http://127.0.0.1:8000/api/projec
 export const createTeam = (data) => axios.post('http://127.0.0.1:8000/api/project/v1/team/add', data);
 export const loadAllTeam = () => axios.get('http://127.0.0.1:8000/api/project/v1/team/get');
 export const loadATeam = (id) => axios.get('http://127.0.0.1:8000/api/project/v1/team/get/' + id);
-export const updateTeam = (data) => axios.put('http://127.0.0.1:8000/api/project/v1/team/update' + data);
+export const updateTeam = (data) => axios.post('http://127.0.0.1:8000/api/project/v1/team/update', data);
 export const deleteTeam = (id) => axios.put('http://127.0.0.1:8000/api/project/v1/team/delete/' + id);
 
 export const addUit = (data) => axios.post('http://127.0.0.1:8000/api/project/v1/team/adduits', data);
